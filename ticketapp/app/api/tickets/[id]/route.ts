@@ -45,5 +45,5 @@ export async function DELETE(request: NextRequest, { params }: Props) {
         where: { id: ticket.id },
     });
 
-    return NextResponse.json({ message: 'Ticket Deleted' }, { status: 204 });
+    return NextResponse.json({ message: 'Ticket Deleted' });
 };
