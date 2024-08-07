@@ -14,6 +14,7 @@ import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 import clsx from 'clsx';
 import ReactMarkdown from 'react-markdown';
+import DeleteButton from './DeleteButton';
 
 
 interface Props {
@@ -69,10 +70,7 @@ const TicketDatail = ({ ticket }: Props) => {
           className={`${buttonVariants({ variant: "default" })}`}>
           Edit Ticket
         </Link>
-        <Link href={`/tickets/edit/${ticket.id}`}
-          className={`${buttonVariants({ variant: "default" })}`}>
-          Delete Ticket
-        </Link>
+        <DeleteButton ticketId={ticket.id}/>
       </div>
     </div>
   )
