@@ -74,7 +74,7 @@ const TicketForm = ({ ticket }: Props) => {
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                                     <FormControl>
                                         <SelectTrigger >
-                                            <SelectValue placeholder='Status...'/>
+                                            <SelectValue placeholder='Status...' />
                                         </SelectTrigger>
                                     </FormControl>
                                     <SelectContent>
@@ -86,7 +86,7 @@ const TicketForm = ({ ticket }: Props) => {
                             </FormItem>
                         )}
                         />
-                        <FormField control={form.control} name='priority' defaultValue={ticket?.priority}  render={({ field }) => (
+                        <FormField control={form.control} name='priority' defaultValue={ticket?.priority} render={({ field }) => (
                             <FormItem>
                                 <FormLabel>Priority</FormLabel>
                                 <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -108,6 +108,7 @@ const TicketForm = ({ ticket }: Props) => {
                     <Button type='submit' disabled={isSubmitting}>{ticket ? 'Update Ticket' : 'Create Ticket'}</Button>
                 </form>
             </Form>
+            <p className='text-destructive'>{error}</p>
         </div>
     )
 }

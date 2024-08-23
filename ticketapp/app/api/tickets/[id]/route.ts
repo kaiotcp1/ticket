@@ -1,6 +1,8 @@
 import { ticketPatchSchema } from "@/ValidationSchemas/tickets";
 import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/prisma/db";
+import { getServerSession } from "next-auth";
+import options from "../../auth/[...nextauth]/options";
 
 interface Props {
     params: {
@@ -12,17 +14,13 @@ export async function PATCH(request: NextRequest, { params }: Props) {
     const body = await request.json();
     const validation = ticketPatchSchema.safeParse(body);
 
-    if (!validation.success) {
-        return NextResponse.json(validation.error.format(), { status: 400 });
-    };
+    if (!validation.success) return NextResponse.json(validation.error.format(), { status: 400 });
 
     const ticket = await prisma.ticket.findUnique({
         where: { id: parseInt(params.id) }
     });
 
-    if (!ticket) {
-        return NextResponse.json({ error: "Ticket Not Found" }, { status: 404 });
-    };
+    if (!ticket) return NextResponse.json({ error: "Ticket Not Found" }, { status: 404 });
 
     if (body?.assignedToUserId) {
         body.assignedToUserId = parseInt(body.assignedToUserId);
@@ -37,13 +35,18 @@ export async function PATCH(request: NextRequest, { params }: Props) {
 };
 
 export async function DELETE(request: NextRequest, { params }: Props) {
+    
+    const session = await getServerSession(options);
+
+    if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+
+    if (session.user.role !== 'ADMIN') return NextResponse.json({ error: 'Only Admins Can Delete Tickets.' }, { status: 401 });
+    
     const ticket = await prisma.ticket.findUnique({
         where: { id: parseInt(params.id) }
     });
 
-    if (!ticket) {
-        return NextResponse.json({ error: 'Ticket not found' }, { status: 404 });
-    };
+    if (!ticket) return NextResponse.json({ error: 'Ticket not found' }, { status: 404 });
 
     await prisma.ticket.delete({
         where: { id: ticket.id },
