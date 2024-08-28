@@ -13,7 +13,7 @@ datasource db {
 
 model Ticket {
   id               Int      @id @default(autoincrement())
-  title            String   @db.VarChar(255)
+  title            String   @db.VarChar(250)
   description      String   @db.Text
   status           Status   @default(OPEN)
   priority         Priority @default(MEDIUM)

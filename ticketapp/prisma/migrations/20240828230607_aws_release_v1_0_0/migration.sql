@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE `Ticket` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(255) NOT NULL,
+    `title` VARCHAR(250) NOT NULL,
     `description` TEXT NOT NULL,
     `status` ENUM('OPEN', 'STARTED', 'CLOSED') NOT NULL DEFAULT 'OPEN',
     `priority` ENUM('LOW', 'MEDIUM', 'HIGH') NOT NULL DEFAULT 'MEDIUM',
