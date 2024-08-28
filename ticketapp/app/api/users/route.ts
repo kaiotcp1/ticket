@@ -8,11 +8,11 @@ import options from "../auth/[...nextauth]/options";
 
 export async function POST(request: NextRequest) {
 
-    const session = await getServerSession(options);
+    // const session = await getServerSession(options);
 
-    if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    // if (!session) return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
 
-    if (session.user.role !== 'ADMIN') return NextResponse.json({ error: 'Only Admins Can Create Users.' }, { status: 401 });
+    // if (session.user.role !== 'ADMIN') return NextResponse.json({ error: 'Only Admins Can Create Users.' }, { status: 401 });
 
     const body: User = await request.json();
     const validation = userSchema.safeParse(body);
