@@ -8,7 +8,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-// import TicketStatusBadge from '@/components/TicketStatusBadge';
 import TicketPriority from '@/components/TicketPriority';
 import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
@@ -16,6 +15,7 @@ import clsx from 'clsx';
 import ReactMarkdown from 'react-markdown';
 import DeleteButton from './DeleteButton';
 import AssignTicket from '@/components/AssignTicket';
+import TicketStatusBadge from '@/components/TicketStatusBadge';
 
 
 interface Props {
@@ -39,7 +39,7 @@ const TicketDatail = ({ ticket, users }: Props) => {
       <Card className={clsx('mx-4 mb-4 lg:col-span-3 lg:mr-4', generateColor(ticket.status))}>
         <CardHeader>
           <div className='flex justify-between mb-3'>
-            {/* <TicketStatusBadge status={ticket.status} /> */}
+            {<TicketStatusBadge status={ticket.status} />}
             <TicketPriority priority={ticket.priority} />
           </div>
           <CardTitle>{ticket.title}</CardTitle>
