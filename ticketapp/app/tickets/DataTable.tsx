@@ -5,7 +5,8 @@ import Link from 'next/link';
 import React from 'react'
 import { ArrowDown } from 'lucide-react';
 import { SearchParams } from './page';
-import TicketStatusBadge from '@/components/TicketStatusBadge';
+import StatusBadge from '@/components/StatusBadge';
+// import TicketStatusBadge from '@/components/TicketStatusBadge';
 
 interface Props {
     tickets: Ticket[];
@@ -70,7 +71,7 @@ const DataTable = ({ tickets, searchParams }: Props) => {
                                 </TableCell>
                                 <TableCell>
                                     <div className='flex justify-center'>
-                                        <TicketStatusBadge status={ticket.status} />
+                                        <StatusBadge status={ticket.status} />
                                     </div>
                                 </TableCell>
                                 <TableCell>

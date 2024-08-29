@@ -3,7 +3,8 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Prisma } from '@prisma/client';
 import Link from 'next/link';
 import TicketPriority from './TicketPriority';
-import TicketStatusBadge from './TicketStatusBadge';
+// import TicketStatusBadge from './TicketStatusBadge';
+import StatusBadge from './StatusBadge';
 
 type TicketWithUser = Prisma.TicketGetPayload<{
     include: { assignedToUser: true };
@@ -23,7 +24,7 @@ const DashRecentTickets = ({ tickets }: Props) => {
                 <div className='space-y-8'>
                     {tickets ? tickets.map((ticket) => (
                         <div className='flex items-center' key={ticket.id}>
-                            <TicketStatusBadge status={ticket.status} />
+                            <StatusBadge status={ticket.status} />
                             <div className='ml-4 space-y-1'>
                                 <Link href={`tickets/${ticket.id}`}>
                                     <p>{ticket.title}</p>
