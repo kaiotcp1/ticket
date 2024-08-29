@@ -1,5 +1,5 @@
 import TicketPriority from '@/components/TicketPriority';
-import TicketStatusBadge from "@/components/TicketStatusBadge";
+// import TicketStatusBadge from "@/components/TicketStatusBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Ticket } from '@prisma/client'
 import Link from 'next/link';
@@ -70,7 +70,7 @@ const DataTable = ({ tickets, searchParams }: Props) => {
                                 </TableCell>
                                 <TableCell>
                                     <div className='flex justify-center'>
-                                        <TicketStatusBadge status={ticket.status} />
+                                        {/* <TicketStatusBadge status={ticket.status} /> */}
                                     </div>
                                 </TableCell>
                                 <TableCell>
