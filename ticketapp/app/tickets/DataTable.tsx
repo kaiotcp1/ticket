@@ -1,5 +1,5 @@
 import TicketPriority from '@/components/TicketPriority';
-import TicketStatusBadge from '@/components/TicketStatusBadge';
+import TicketStatusBadge from "@/components/TicketStatusBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Ticket } from '@prisma/client'
 import Link from 'next/link';
