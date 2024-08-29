@@ -23,7 +23,7 @@ const DashRecentTickets = ({ tickets }: Props) => {
                 <div className='space-y-8'>
                     {tickets ? tickets.map((ticket) => (
                         <div className='flex items-center' key={ticket.id}>
-                            {<TicketStatusBadge status={ticket.status} />}
+                            <TicketStatusBadge status={ticket.status} />
                             <div className='ml-4 space-y-1'>
                                 <Link href={`tickets/${ticket.id}`}>
                                     <p>{ticket.title}</p>

@@ -70,7 +70,7 @@ const DataTable = ({ tickets, searchParams }: Props) => {
                                 </TableCell>
                                 <TableCell>
                                     <div className='flex justify-center'>
-                                        {<TicketStatusBadge status={ticket.status} />}
+                                        <TicketStatusBadge status={ticket.status} />
                                     </div>
                                 </TableCell>
                                 <TableCell>
