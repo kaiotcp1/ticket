@@ -18,9 +18,9 @@ const statusMap: Record<
 const TicketStatusBadge = ({ status }: Props) => {
   return (
     <Badge
-      className={`text-sm ${statusMap[status].color} font-medium`}
+      className='text-sm'
     >
-      {statusMap[status].label}
+      {<p> {status} </p>}
     </Badge>
   );
 };
