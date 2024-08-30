@@ -8,11 +8,11 @@ import options from "../api/auth/[...nextauth]/options";
 
 const Users = async () => {
 
-  // const session = await getServerSession(options);
+   const session = await getServerSession(options);
 
-  // if (session?.user?.role !== 'ADMIN') {
-  //   return <p className="text-destructive">Admin access required.</p>;
-  // };
+   if (session?.user?.role !== 'ADMIN') {
+     return <p className="text-destructive">Admin access required.</p>;
+   };
 
   const user = await prisma.user.findMany();
 
