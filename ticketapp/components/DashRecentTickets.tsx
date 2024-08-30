@@ -3,7 +3,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Prisma } from '@prisma/client';
 import Link from 'next/link';
 import TicketPriority from './TicketPriority';
-// import TicketStatusBadge from './TicketStatusBadge';
 import StatusBadge from './StatusBadge';
 
 type TicketWithUser = Prisma.TicketGetPayload<{

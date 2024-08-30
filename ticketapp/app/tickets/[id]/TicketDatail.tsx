@@ -16,7 +16,6 @@ import ReactMarkdown from 'react-markdown';
 import DeleteButton from './DeleteButton';
 import AssignTicket from '@/components/AssignTicket';
 import StatusBadge from '@/components/StatusBadge';
-// import TicketStatusBadge from '@/components/TicketStatusBadge';
 
 
 interface Props {

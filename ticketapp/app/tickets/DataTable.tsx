@@ -6,7 +6,6 @@ import React from 'react'
 import { ArrowDown } from 'lucide-react';
 import { SearchParams } from './page';
 import StatusBadge from '@/components/StatusBadge';
-// import TicketStatusBadge from '@/components/TicketStatusBadge';
 
 interface Props {
     tickets: Ticket[];
